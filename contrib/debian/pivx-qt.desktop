@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=VELES
+Comment=VELES P2P Cryptocurrency
+Comment[fr]=VELES, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=VELES, eşten eşe kriptografik sanal para birimi
+Exec=veles-qt %u
+Terminal=false
+Type=Application
+Icon=veles128
+MimeType=x-scheme-handler/veles;
+Categories=Office;Finance;
