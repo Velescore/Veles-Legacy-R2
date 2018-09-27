@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Bitcoin Delopers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
 // Copyright (c) 2018 The Veles developers
@@ -1842,7 +1842,7 @@ int64_t GetBlockValue(int nHeight)
 	/* int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;*/
   //  int64_t mNodeCoins = nMasternodeCount * 1200 * COIN;
 
-    int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount ,bool isZVLSStake)
+    int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
     int64_t ret = 0;
 
@@ -2867,7 +2867,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                          REJECT_INVALID, "bad-cb-amount");
     }
     //Dev rewards for Veles development  
-    if (pindex->pprev->nHeight >= 2) {
+    /*if (pindex->pprev->nHeight >= 2) {
     CAmount devReward = nExpectedMint * .02;
     if (devReward > 0) {
         CTxDestination destination = CBitcoinAddress(Params().DevAddress()).Get();
@@ -2884,7 +2884,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     return state.DoS(0, error("ConnectBlock(VLS): no dev reward"), REJECT_INVALID, "no-dev-reward");
         }
       }
-	
+	*/
 	
     // Ensure that accumulator checkpoints are valid and in the same state as this instance of the chain
     AccumulatorMap mapAccumulators(Params().Zerocoin_Params(pindex->nHeight < Params().Zerocoin_Block_V2_Start()));
