@@ -1842,7 +1842,7 @@ int64_t GetBlockValue(int nHeight)
 	/* int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;*/
   //  int64_t mNodeCoins = nMasternodeCount * 1200 * COIN;
 
-    int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
+    int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount ,bool isZVLSStake)
 {
     int64_t ret = 0;
 	
