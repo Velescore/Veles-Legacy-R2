@@ -1845,16 +1845,12 @@ int64_t GetBlockValue(int nHeight)
     int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount ,bool isZVLSStake)
 {
     int64_t ret = 0;
-	
-	// 74% for Masternodes, 24% Staking, 2% dev (sporks)
-	if (nHeight == 0) {
-	      ret = blockValue  / 100 * 0;
-	} else if (nHeight > 1) {
-		  ret = blockValue  / 100 * 74;
-	}
-			
+
+    ret = blockValue * .74;
+
     return ret;
 }
+
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZVLSStake)
 {
     int64_t ret = 0;
