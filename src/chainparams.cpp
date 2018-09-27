@@ -180,7 +180,7 @@ public:
         assert(hashGenesisBlock == uint256("00000ae9055a2d9bce6f37e51bc81f5af463a54c96e629b1001e735e035e9081"));
         assert(genesis.hashMerkleRoot == uint256("61cec95162d141df8ddbad7b5026e6f22c4ea795930b1d94d584a6c29f143542"));
         
-        devAddress = "";
+        //devAddress = "";
 
         vSeeds.push_back(CDNSSeedData("35.237.44.237", "35.237.44.237"));
         vSeeds.push_back(CDNSSeedData("35.233.103.92", "35.233.103.92")); 
