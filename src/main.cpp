@@ -2870,7 +2870,26 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                                     FormatMoney(pindex->nMint), FormatMoney(nExpectedMint)),
                          REJECT_INVALID, "bad-cb-amount");
     }
+    //Dev rewards for Veles development  
+    /*if (pindex->pprev->nHeight >= 2) {
+    CAmount devReward = nExpectedMint * .02;
+    if (devReward > 0) {
+        CTxDestination destination = CBitcoinAddress(Params().DevAddress()).Get();
+        CScript DEV_SCRIPT = GetScriptForDestination(destination);
+        bool DevPaid = false;
 
+    for (const auto& output : block.vtx[(block.IsProofOfWork()?0:1)].vout) 
+    if (output.scriptPubKey == DEV_SCRIPT && output.nValue == devReward) {
+	DevPaid = true;
+        break;
+            }
+        }
+    if (!DevPaid) {
+    return state.DoS(0, error("ConnectBlock(VLS): no dev reward"), REJECT_INVALID, "no-dev-reward");
+        }
+      }*/
+	
+	
     // Ensure that accumulator checkpoints are valid and in the same state as this instance of the chain
     AccumulatorMap mapAccumulators(Params().Zerocoin_Params(pindex->nHeight < Params().Zerocoin_Block_V2_Start()));
     if (!ValidateAccumulatorCheckpoint(block, pindex, mapAccumulators))
