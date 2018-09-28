@@ -1842,41 +1842,17 @@ int64_t GetBlockValue(int nHeight)
 	/* int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;*/
   //  int64_t mNodeCoins = nMasternodeCount * 1200 * COIN;
 
-    int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
-{
-    int64_t ret = 0;
-
-    ret = blockValue * .74;
-
-    return ret;
-}
-
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZVLSStake)
 {
     int64_t ret = 0;
-
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200)
-            return 0;
-    }
-
-    if (nHeight <= 43200) {
-        ret = blockValue / 5;
-    } else if (nHeight < 86400 && nHeight > 43200) {
-        ret = blockValue / (100 / 30);
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        ret = 50 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        ret = blockValue / 2;
-    } else if (nHeight < Params().Zerocoin_Block_V2_Start()) {
-        return GetSeeSaw(blockValue, nMasternodeCount, nHeight);
-    } else {
-        //When zVLS is staked, masternode only gets 2 VLS
-        ret = 3 * COIN;
-        if (isZVLSStake)
-            ret = 2 * COIN;
-    }
-
+	
+	// 74% for Masternodes, 24% Staking, 2% dev (sporks)
+	if (nHeight == 0) {
+	      ret = blockValue  / 100 * 0;
+	} else if (nHeight > 1) {
+		  ret = blockValue  / 100 * 74;
+	}
+			
     return ret;
 }
 
