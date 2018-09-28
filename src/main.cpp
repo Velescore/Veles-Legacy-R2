@@ -1848,12 +1848,12 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 	
 	// 74% for Masternodes, 24% Staking, 2% dev (sporks)
 	if (nHeight == 0) {
-	      ret = blockValue  / 100 * 0;
-	} else if (nHeight > 1) {
-		  ret = blockValue  / 100 * 80;
-	} else if (nHeight > 20600) {
-		  ret = blockValue  / 100 * 74;
-	}		
+              ret = blockValue  / 100 * 0;
+        } else if (nHeight < 21000) {
+                  ret = blockValue  / 100 * 80;
+        } else {
+                  ret = blockValue  / 100 * 74;
+        }	
     return ret;
 }
 
