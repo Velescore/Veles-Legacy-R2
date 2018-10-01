@@ -84,9 +84,9 @@ enum WalletFeature {
 enum AvailableCoinsType {
     ALL_COINS = 1,
     ONLY_DENOMINATED = 2,
-    ONLY_NOT1200IFMN = 3,
-    ONLY_NONDENOMINATED_NOT1200IFMN = 4, // ONLY_NONDENOMINATED and not 1200 VLS at the same time
-    ONLY_1200 = 5,                        // find masternode outputs including locked ones (use with caution)
+    ONLY_NOT10000IFMN = 3,
+    ONLY_NONDENOMINATED_NOT10000IFMN = 4, // ONLY_NONDENOMINATED and not 1200 VLS at the same time
+    ONLY_10000 = 5,                        // find masternode outputs including locked ones (use with caution)
     STAKABLE_COINS = 6                          // UTXO's that are valid for staking
 };
 
