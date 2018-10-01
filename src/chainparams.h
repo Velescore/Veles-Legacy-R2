@@ -126,7 +126,9 @@ public:
     int Block_Enforce_Invalid() const { return nBlockEnforceInvalidUTXO; }
     int Zerocoin_Block_V2_Start() const { return nBlockZerocoinV2; }
     CAmount InvalidAmountFiltered() const { return nInvalidAmountFiltered; };
-
+ //VLS   
+    std::string DevAddress() const { return devAddress; }
+ //VLS
 protected:
     CChainParams() {}
 
