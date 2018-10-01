@@ -127,7 +127,7 @@ public:
     int Zerocoin_Block_V2_Start() const { return nBlockZerocoinV2; }
     CAmount InvalidAmountFiltered() const { return nInvalidAmountFiltered; };
  //VLS   
-    std::string DevAddress() const { return devAddress; };
+    std::string DevAddress() const { return devAddress; }
  //VLS
 protected:
     CChainParams() {}
@@ -191,6 +191,9 @@ protected:
     int nBlockLastGoodCheckpoint;
     int nBlockEnforceInvalidUTXO;
     int nBlockZerocoinV2;
+    //vls
+    std::string devAddress;
+    //vls
 };
 
 /**
