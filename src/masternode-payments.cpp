@@ -358,7 +358,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
             unsigned int i = txNew.vout.size();
 
             // VLS
-            CAmount nDevReward = blockValue * .05;
+            CAmount nDevReward = blockValue * .02;
             if (nDevReward > 0) {
                 CTxDestination destination = CBitcoinAddress(Params().DevAddress()).Get();
                 CScript DEV_SCRIPT = GetScriptForDestination(destination);
