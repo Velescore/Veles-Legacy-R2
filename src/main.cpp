@@ -1829,18 +1829,6 @@ int64_t GetBlockValue(int nHeight)
     }
       return nSubsidy;
 }   
-	CAmount GetSeeSaw(const CAmount& blockValue, int nMasternodeCount, int nHeight)
-{
-    //if a mn count is inserted into the function we are looking for a specific result for a masternode count
-     if (nMasternodeCount < 1){
-     if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
-            nMasternodeCount = mnodeman.stable_size();
-        else
-            nMasternodeCount = mnodeman.size();
-    }
-}
-	/* int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;*/
-  //  int64_t mNodeCoins = nMasternodeCount * 1200 * COIN;
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZVLSStake)
 {
