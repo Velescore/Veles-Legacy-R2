@@ -1243,7 +1243,7 @@ rpc/libbitcoin_server_a-budget.o: rpc/budget.cpp \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
  libzerocoin/bignum.h db.h init.h main.h masternode-budget.h \
  masternode-payments.h masternodeconfig.h \
  /usr/include/boost/filesystem.hpp \
@@ -4186,9 +4186,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 

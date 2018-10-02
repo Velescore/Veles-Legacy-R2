@@ -1242,7 +1242,7 @@ test/test_test_veles-test_veles.o: test/test_veles.cpp \
  /usr/include/db_cxx.h /usr/include/db.h /usr/include/inttypes.h wallet.h \
  base58.h crypter.h keystore.h kernel.h stakeinput.h ui_interface.h \
  validationinterface.h wallet_ismine.h walletdb.h db.h \
- libzerocoin/Accumulator.h zpivtracker.h zpivwallet.h libzerocoin/Coin.h \
+ libzerocoin/Accumulator.h zvlstracker.h zvlswallet.h libzerocoin/Coin.h \
  mintpool.h libzerocoin/bignum.h /usr/include/boost/filesystem.hpp \
  /usr/include/boost/filesystem/operations.hpp \
  /usr/include/boost/detail/scoped_enum_emulation.hpp \
@@ -4266,9 +4266,9 @@ db.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 

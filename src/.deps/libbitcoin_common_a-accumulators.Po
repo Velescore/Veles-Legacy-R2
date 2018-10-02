@@ -1253,8 +1253,8 @@ libbitcoin_common_a-accumulators.o: accumulators.cpp \
  crypter.h keystore.h kernel.h stakeinput.h ui_interface.h \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h /usr/include/db_cxx.h /usr/include/db.h \
- /usr/include/inttypes.h zpivtracker.h zpivwallet.h mintpool.h \
- libzerocoin/bignum.h zpivchain.h
+ /usr/include/inttypes.h zvlstracker.h zvlswallet.h mintpool.h \
+ libzerocoin/bignum.h zvlschain.h
 
 /usr/include/stdc-predef.h:
 
@@ -4234,12 +4234,12 @@ db.h:
 
 /usr/include/inttypes.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 mintpool.h:
 
 libzerocoin/bignum.h:
 
-zpivchain.h:
+zvlschain.h:

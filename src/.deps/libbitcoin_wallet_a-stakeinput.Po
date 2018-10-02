@@ -1247,7 +1247,7 @@ libbitcoin_wallet_a-stakeinput.o: stakeinput.cpp \
  pubkey.h crypter.h keystore.h kernel.h ui_interface.h \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
- /usr/include/db.h /usr/include/inttypes.h zpivtracker.h zpivwallet.h \
+ /usr/include/db.h /usr/include/inttypes.h zvlstracker.h zvlswallet.h \
  mintpool.h libzerocoin/bignum.h
 
 /usr/include/stdc-predef.h:
@@ -4194,9 +4194,9 @@ clientversion.h:
 
 /usr/include/inttypes.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 mintpool.h:
 

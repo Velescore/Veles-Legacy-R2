@@ -1030,7 +1030,7 @@ libbitcoin_wallet_a-walletdb.o: walletdb.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/sys/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman-linux.h tinyformat.h utiltime.h \
- zpivtracker.h base58.h chainparams.h chainparamsbase.h checkpoints.h \
+ zvlstracker.h base58.h chainparams.h chainparamsbase.h checkpoints.h \
  primitives/block.h primitives/transaction.h script/script.h pubkey.h \
  keystore.h protocol.h netbase.h compat.h libzerocoin/Params.h \
  script/script.h script/standard.h script/interpreter.h \
@@ -1241,7 +1241,7 @@ libbitcoin_wallet_a-walletdb.o: walletdb.cpp /usr/include/stdc-predef.h \
  libzerocoin/Commitment.h libzerocoin/SerialNumberSignatureOfKnowledge.h \
  hash.h libzerocoin/SpendType.h utiltime.h wallet.h crypter.h kernel.h \
  stakeinput.h ui_interface.h /usr/include/boost/signals2/last_value.hpp \
- validationinterface.h wallet_ismine.h zpivwallet.h libzerocoin/Coin.h \
+ validationinterface.h wallet_ismine.h zvlswallet.h libzerocoin/Coin.h \
  mintpool.h libzerocoin/bignum.h primitives/deterministicmint.h \
  /usr/include/boost/filesystem.hpp \
  /usr/include/boost/filesystem/operations.hpp \
@@ -3699,7 +3699,7 @@ tinyformat.h:
 
 utiltime.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
 base58.h:
 
@@ -4243,7 +4243,7 @@ validationinterface.h:
 
 wallet_ismine.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 

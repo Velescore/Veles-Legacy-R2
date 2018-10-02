@@ -5,16 +5,16 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0.0
+!define VERSION 3.1.99
 !define COMPANY "Veles Core project"
 !define URL https://www.veles.org
 
 # MUI Symbol Definitions
-!define MUI_ICON "/home/mdfkbtc/fork/veles-source/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/mdfkbtc/fork/veles-source/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/home/mdfkbtc/veles-1.0.0.1/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/mdfkbtc/veles-1.0.0.1/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/home/mdfkbtc/fork/veles-source/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/home/mdfkbtc/veles-1.0.0.1/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -22,7 +22,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Veles Core"
 !define MUI_FINISHPAGE_RUN $INSTDIR\veles-qt
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/mdfkbtc/fork/veles-source/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/mdfkbtc/veles-1.0.0.1/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -48,7 +48,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /home/mdfkbtc/fork/veles-source/veles-${VERSION}-win-setup.exe
+OutFile /home/mdfkbtc/veles-1.0.0.1/veles-${VERSION}-win-setup.exe
 !if "" == "64"
 InstallDir $PROGRAMFILES64\Veles
 !else
@@ -58,7 +58,7 @@ CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
-VIProductVersion ${VERSION}.1
+VIProductVersion ${VERSION}.0
 VIAddVersionKey ProductName "Veles Core"
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -73,14 +73,14 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /home/mdfkbtc/fork/veles-source/release/veles-qt
-    File /oname=COPYING.txt /home/mdfkbtc/fork/veles-source/COPYING
-    File /oname=readme.txt /home/mdfkbtc/fork/veles-source/doc/README_windows.txt
+    File /home/mdfkbtc/veles-1.0.0.1/release/veles-qt
+    File /oname=COPYING.txt /home/mdfkbtc/veles-1.0.0.1/COPYING
+    File /oname=readme.txt /home/mdfkbtc/veles-1.0.0.1/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /home/mdfkbtc/fork/veles-source/release/velesd
-    File /home/mdfkbtc/fork/veles-source/release/veles-cli
+    File /home/mdfkbtc/veles-1.0.0.1/release/velesd
+    File /home/mdfkbtc/veles-1.0.0.1/release/veles-cli
     SetOutPath $INSTDIR\doc
-    File /r /home/mdfkbtc/fork/veles-source/doc\*.*
+    File /r /home/mdfkbtc/veles-1.0.0.1/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 SectionEnd

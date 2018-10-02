@@ -1238,7 +1238,7 @@ test/test_test_veles-zerocoin_transactions_tests.o: \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
  libzerocoin/bignum.h walletdb.h txdb.h leveldbwrapper.h \
  leveldb/include/leveldb/db.h leveldb/include/leveldb/iterator.h \
  leveldb/include/leveldb/slice.h leveldb/include/leveldb/status.h \
@@ -4187,9 +4187,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 

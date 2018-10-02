@@ -1240,11 +1240,11 @@ libbitcoin_server_a-miner.o: miner.cpp /usr/include/stdc-predef.h miner.h \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
  libzerocoin/bignum.h masternode-payments.h masternode.h accumulators.h \
  accumulatormap.h accumulatorcheckpoints.h univalue/include/univalue.h \
  blocksignature.h spork.h obfuscation.h masternodeman.h \
- obfuscation-relay.h activemasternode.h init.h invalid.h zpivchain.h \
+ obfuscation-relay.h activemasternode.h init.h invalid.h zvlschain.h \
  /usr/include/boost/thread.hpp /usr/include/boost/thread/thread.hpp \
  /usr/include/boost/thread/thread_only.hpp \
  /usr/include/boost/thread/detail/thread.hpp \
@@ -4231,9 +4231,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 
@@ -4269,7 +4269,7 @@ init.h:
 
 invalid.h:
 
-zpivchain.h:
+zvlschain.h:
 
 /usr/include/boost/thread.hpp:
 

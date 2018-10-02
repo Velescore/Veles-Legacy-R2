@@ -1276,8 +1276,8 @@ qt/qt_libbitcoinqt_a-transactionrecord.o: qt/transactionrecord.cpp \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
- libzerocoin/bignum.h swifttx.h spork.h timedata.h wallet.h zpivchain.h
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
+ libzerocoin/bignum.h swifttx.h spork.h timedata.h wallet.h zvlschain.h
 
 /usr/include/stdc-predef.h:
 
@@ -4279,9 +4279,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 
@@ -4297,4 +4297,4 @@ timedata.h:
 
 wallet.h:
 
-zpivchain.h:
+zvlschain.h:

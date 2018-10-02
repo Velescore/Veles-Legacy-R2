@@ -1480,11 +1480,11 @@ qt/qt_libbitcoinqt_a-privacydialog.o: qt/privacydialog.cpp \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
  libzerocoin/bignum.h wallet.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStackedWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstackedwidget.h \
- coincontrol.h qt/zpivcontroldialog.h primitives/zerocoin.h spork.h \
+ coincontrol.h qt/zvlscontroldialog.h primitives/zerocoin.h spork.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QClipboard \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qclipboard.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
@@ -5362,9 +5362,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 
@@ -5380,7 +5380,7 @@ wallet.h:
 
 coincontrol.h:
 
-qt/zpivcontroldialog.h:
+qt/zvlscontroldialog.h:
 
 primitives/zerocoin.h:
 

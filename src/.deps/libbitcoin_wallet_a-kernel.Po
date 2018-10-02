@@ -1246,7 +1246,7 @@ libbitcoin_wallet_a-kernel.o: kernel.cpp /usr/include/stdc-predef.h \
  libzerocoin/Params.h util.h libzerocoin/AccumulatorProofOfKnowledge.h \
  libzerocoin/Commitment.h libzerocoin/SerialNumberSignatureOfKnowledge.h \
  hash.h libzerocoin/SpendType.h stakeinput.h script/interpreter.h \
- timedata.h zpivchain.h libzerocoin/Coin.h
+ timedata.h zvlschain.h libzerocoin/Coin.h
 
 /usr/include/stdc-predef.h:
 
@@ -4164,6 +4164,6 @@ script/interpreter.h:
 
 timedata.h:
 
-zpivchain.h:
+zvlschain.h:
 
 libzerocoin/Coin.h:

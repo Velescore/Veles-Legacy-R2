@@ -1397,7 +1397,7 @@ qt/qt_libbitcoinqt_a-guiutil.o: qt/guiutil.cpp /usr/include/stdc-predef.h \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
  libzerocoin/bignum.h wallet.h init.h main.h protocol.h script/standard.h \
  /usr/include/boost/filesystem/fstream.hpp /usr/include/c++/5/fstream \
  /usr/include/x86_64-linux-gnu/c++/5/bits/basic_file.h \
@@ -4692,9 +4692,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 

@@ -1244,12 +1244,12 @@ libbitcoin_server_a-main.o: main.cpp /usr/include/stdc-predef.h main.h \
  crypter.h ui_interface.h /usr/include/boost/signals2/last_value.hpp \
  validationinterface.h wallet_ismine.h walletdb.h db.h clientversion.h \
  /usr/include/db_cxx.h /usr/include/db.h /usr/include/inttypes.h \
- zpivtracker.h zpivwallet.h mintpool.h libzerocoin/bignum.h spork.h \
+ zvlstracker.h zvlswallet.h mintpool.h libzerocoin/bignum.h spork.h \
  sporkdb.h leveldbwrapper.h leveldb/include/leveldb/db.h \
  leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h \
  leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h \
  leveldb/include/leveldb/write_batch.h swifttx.h txdb.h utilmoneystr.h \
- zpivchain.h invalid.h /usr/include/boost/algorithm/string/replace.hpp \
+ zvlschain.h invalid.h /usr/include/boost/algorithm/string/replace.hpp \
  /usr/include/boost/algorithm/string/config.hpp \
  /usr/include/boost/algorithm/string/find_format.hpp \
  /usr/include/boost/range/as_literal.hpp \
@@ -4301,9 +4301,9 @@ clientversion.h:
 
 /usr/include/inttypes.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 mintpool.h:
 
@@ -4333,7 +4333,7 @@ txdb.h:
 
 utilmoneystr.h:
 
-zpivchain.h:
+zvlschain.h:
 
 invalid.h:
 

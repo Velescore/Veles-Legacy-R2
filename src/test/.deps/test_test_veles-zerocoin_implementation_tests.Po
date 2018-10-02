@@ -1273,8 +1273,8 @@ test/test_test_veles-zerocoin_implementation_tests.o: \
  stakeinput.h ui_interface.h /usr/include/boost/signals2/last_value.hpp \
  validationinterface.h wallet_ismine.h walletdb.h db.h \
  /usr/include/db_cxx.h /usr/include/db.h /usr/include/inttypes.h \
- zpivtracker.h zpivwallet.h mintpool.h libzerocoin/bignum.h zpivwallet.h \
- zpivchain.h
+ zvlstracker.h zvlswallet.h mintpool.h libzerocoin/bignum.h zvlswallet.h \
+ zvlschain.h
 
 /usr/include/stdc-predef.h:
 
@@ -4276,14 +4276,14 @@ db.h:
 
 /usr/include/inttypes.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 mintpool.h:
 
 libzerocoin/bignum.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
-zpivchain.h:
+zvlschain.h:

@@ -1427,7 +1427,7 @@ qt/qt_libbitcoinqt_a-askpassphrasedialog.o: qt/askpassphrasedialog.cpp \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
  libzerocoin/bignum.h wallet.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QKeyEvent \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
@@ -4749,9 +4749,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 

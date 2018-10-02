@@ -1238,7 +1238,7 @@ libbitcoin_wallet_a-wallet.o: wallet.cpp /usr/include/stdc-predef.h \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
  libzerocoin/bignum.h accumulators.h accumulatormap.h \
  accumulatorcheckpoints.h univalue/include/univalue.h coincontrol.h \
  masternode-budget.h init.h masternode.h timedata.h script/sign.h \
@@ -1247,7 +1247,7 @@ libbitcoin_wallet_a-wallet.o: wallet.cpp /usr/include/stdc-predef.h \
  swifttx.h txdb.h leveldbwrapper.h leveldb/include/leveldb/db.h \
  leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h \
  leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h \
- leveldb/include/leveldb/write_batch.h utilmoneystr.h zpivchain.h \
+ leveldb/include/leveldb/write_batch.h utilmoneystr.h zvlschain.h \
  denomination_functions.h reverse_iterate.h \
  primitives/deterministicmint.h \
  /usr/include/boost/algorithm/string/replace.hpp \
@@ -4292,9 +4292,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 
@@ -4358,7 +4358,7 @@ leveldb/include/leveldb/write_batch.h:
 
 utilmoneystr.h:
 
-zpivchain.h:
+zvlschain.h:
 
 denomination_functions.h:
 

@@ -1238,7 +1238,7 @@ libbitcoin_server_a-blocksignature.o: blocksignature.cpp \
  libzerocoin/Coin.h libzerocoin/Denominations.h libzerocoin/Params.h \
  util.h libzerocoin/AccumulatorProofOfKnowledge.h \
  libzerocoin/Commitment.h libzerocoin/SerialNumberSignatureOfKnowledge.h \
- hash.h libzerocoin/SpendType.h zpivchain.h libzerocoin/Coin.h
+ hash.h libzerocoin/SpendType.h zvlschain.h libzerocoin/Coin.h
 
 /usr/include/stdc-predef.h:
 
@@ -4126,6 +4126,6 @@ hash.h:
 
 libzerocoin/SpendType.h:
 
-zpivchain.h:
+zvlschain.h:
 
 libzerocoin/Coin.h:

@@ -1245,8 +1245,8 @@ libbitcoin_wallet_a-rpcwallet.o: rpcwallet.cpp /usr/include/stdc-predef.h \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h clientversion.h /usr/include/db_cxx.h \
  /usr/include/db.h /usr/include/inttypes.h libzerocoin/Accumulator.h \
- zpivtracker.h zpivwallet.h libzerocoin/Coin.h mintpool.h \
- libzerocoin/bignum.h zpivchain.h spork.h obfuscation.h \
+ zvlstracker.h zvlswallet.h libzerocoin/Coin.h mintpool.h \
+ libzerocoin/bignum.h zvlschain.h spork.h obfuscation.h \
  masternode-payments.h masternode.h masternode-sync.h masternodeman.h \
  obfuscation-relay.h activemasternode.h primitives/deterministicmint.h \
  /usr/include/boost/assign/list_of.hpp \
@@ -4220,9 +4220,9 @@ clientversion.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 
@@ -4230,7 +4230,7 @@ mintpool.h:
 
 libzerocoin/bignum.h:
 
-zpivchain.h:
+zvlschain.h:
 
 spork.h:
 

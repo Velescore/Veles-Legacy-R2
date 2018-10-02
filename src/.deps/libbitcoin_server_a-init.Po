@@ -1249,7 +1249,7 @@ libbitcoin_server_a-init.o: init.cpp /usr/include/stdc-predef.h \
  ui_interface.h /usr/include/boost/signals2/last_value.hpp \
  validationinterface.h wallet_ismine.h walletdb.h db.h clientversion.h \
  /usr/include/db_cxx.h /usr/include/db.h /usr/include/inttypes.h \
- zpivtracker.h zpivwallet.h mintpool.h libzerocoin/bignum.h addrman.h \
+ zvlstracker.h zvlswallet.h mintpool.h libzerocoin/bignum.h addrman.h \
  compat/sanity.h httpserver.h /usr/include/boost/thread.hpp \
  /usr/include/boost/thread/thread.hpp \
  /usr/include/boost/thread/thread_only.hpp \
@@ -1321,7 +1321,7 @@ libbitcoin_server_a-init.o: init.cpp /usr/include/stdc-predef.h \
  leveldb/include/leveldb/db.h leveldb/include/leveldb/iterator.h \
  leveldb/include/leveldb/slice.h leveldb/include/leveldb/status.h \
  leveldb/include/leveldb/options.h leveldb/include/leveldb/write_batch.h \
- txdb.h torcontrol.h utilmoneystr.h zpivchain.h /usr/include/signal.h \
+ txdb.h torcontrol.h utilmoneystr.h zvlschain.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/sigaction.h \
  /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
@@ -4333,9 +4333,9 @@ clientversion.h:
 
 /usr/include/inttypes.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 mintpool.h:
 
@@ -4529,7 +4529,7 @@ torcontrol.h:
 
 utilmoneystr.h:
 
-zpivchain.h:
+zvlschain.h:
 
 /usr/include/signal.h:
 

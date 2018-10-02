@@ -1247,8 +1247,8 @@ libbitcoin_common_a-sporkdb.o: sporkdb.cpp /usr/include/stdc-predef.h \
  keystore.h kernel.h stakeinput.h ui_interface.h \
  /usr/include/boost/signals2/last_value.hpp validationinterface.h \
  wallet_ismine.h walletdb.h db.h /usr/include/db_cxx.h /usr/include/db.h \
- /usr/include/inttypes.h libzerocoin/Accumulator.h zpivtracker.h \
- zpivwallet.h libzerocoin/Coin.h mintpool.h libzerocoin/bignum.h
+ /usr/include/inttypes.h libzerocoin/Accumulator.h zvlstracker.h \
+ zvlswallet.h libzerocoin/Coin.h mintpool.h libzerocoin/bignum.h
 
 /usr/include/stdc-predef.h:
 
@@ -4210,9 +4210,9 @@ db.h:
 
 libzerocoin/Accumulator.h:
 
-zpivtracker.h:
+zvlstracker.h:
 
-zpivwallet.h:
+zvlswallet.h:
 
 libzerocoin/Coin.h:
 

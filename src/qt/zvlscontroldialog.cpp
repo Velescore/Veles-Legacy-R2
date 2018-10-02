@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "zpivcontroldialog.h"
-#include "ui_zpivcontroldialog.h"
+#include "zvlscontroldialog.h"
+#include "ui_zvlscontroldialog.h"
 
 #include "accumulators.h"
 #include "main.h"

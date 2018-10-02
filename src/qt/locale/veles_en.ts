@@ -6226,7 +6226,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ZPivControlDialog</name>
     <message>
-        <location filename="../forms/zpivcontroldialog.ui" line="+20"/>
+        <location filename="../forms/zvlscontroldialog.ui" line="+20"/>
         <source>Select zVLS to Spend</source>
         <translation type="unfinished"></translation>
     </message>
