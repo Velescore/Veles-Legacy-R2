@@ -311,7 +311,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         }
     }
 
-    CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
+    CAmount blockValue = GetBlockValue(pindexPrev->nHeight + 1);
     CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, 0, fZVLSStake);
 
     if (hasPayment) {
@@ -398,7 +398,7 @@ void CMasternodePayments::ProcessMessageMasternodePayments(CNode* pfrom, std::st
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
             if (pfrom->HasFulfilledRequest("mnget")) {
                 LogPrintf("CMasternodePayments::ProcessMessageMasternodePayments() : mnget - peer already asked me for the list\n");
-                Misbehaving(pfrom->GetId(), 20);
+               // Misbehaving(pfrom->GetId(), 20);
                 return;
             }
         }
