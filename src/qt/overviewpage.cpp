@@ -266,7 +266,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     bool showWatchOnly = nTotalWatchBalance != 0;
     
     // VLS Available
-    bool showABPAvailable = settingShowAllBalances || pivAvailableBalance != nTotalBalance;
+    bool showVLSAvailable = settingShowAllBalances || pivAvailableBalance != nTotalBalance;
     bool showWatchOnlyVLSAvailable = showVLSAvailable || nAvailableWatchBalance != nTotalWatchBalance;
     ui->labelBalanceText->setVisible(showVLSAvailable || showWatchOnlyVLSAvailable);
     ui->labelBalance->setVisible(showVLSAvailable || showWatchOnlyVLSAvailable);
