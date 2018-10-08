@@ -193,7 +193,7 @@ void OptionsDialog::setMapper()
     // Zerocoin mint percentage
     //mapper->addMapping(ui->zeromintPercentage, OptionsModel::ZeromintPercentage);
     // Zerocoin preferred denomination
-    mapper->addMapping(ui->preferredDenom, OptionsModel::ZeromintPrefDenom);
+    //mapper->addMapping(ui->preferredDenom, OptionsModel::ZeromintPrefDenom);
 
     /* Wallet */
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
