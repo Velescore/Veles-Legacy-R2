@@ -86,7 +86,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     ui->theme->addItem(QString("Default"), QVariant("default"));
 
     /* Preferred Zerocoin Denominations */
-    ui->preferredDenom->addItem(QString(tr("Any")), QVariant("0"));
+   /* ui->preferredDenom->addItem(QString(tr("Any")), QVariant("0"));
     ui->preferredDenom->addItem(QString("1"), QVariant("1"));
     ui->preferredDenom->addItem(QString("5"), QVariant("5"));
     ui->preferredDenom->addItem(QString("10"), QVariant("10"));
@@ -95,7 +95,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     ui->preferredDenom->addItem(QString("500"), QVariant("500"));
     ui->preferredDenom->addItem(QString("1000"), QVariant("1000"));
     ui->preferredDenom->addItem(QString("5000"), QVariant("5000"));
-
+*/
     /* Theme selector external themes */
     boost::filesystem::path pathAddr = GetDataDir() / "themes";
     QDir dir(pathAddr.string().c_str());
@@ -114,27 +114,19 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
         QLocale locale(langStr);
 
         /** check if the locale name consists of 2 parts (language_country) */
-        if (langStr.contains("_")) {
-#if QT_VERSION >= 0x040800
+        if(langStr.contains("_"))
+        {
             /** display language strings as "native language - native country (locale name)", e.g. "Deutsch - Deutschland (de)" */
             ui->lang->addItem(locale.nativeLanguageName() + QString(" - ") + locale.nativeCountryName() + QString(" (") + langStr + QString(")"), QVariant(langStr));
-#else
-            /** display language strings as "language - country (locale name)", e.g. "German - Germany (de)" */
-            ui->lang->addItem(QLocale::languageToString(locale.language()) + QString(" - ") + QLocale::countryToString(locale.country()) + QString(" (") + langStr + QString(")"), QVariant(langStr));
-#endif
-        } else {
-#if QT_VERSION >= 0x040800
+        }
+        else
+        {
             /** display language strings as "native language (locale name)", e.g. "Deutsch (de)" */
             ui->lang->addItem(locale.nativeLanguageName() + QString(" (") + langStr + QString(")"), QVariant(langStr));
-#else
-            /** display language strings as "language (locale name)", e.g. "German (de)" */
-            ui->lang->addItem(QLocale::languageToString(locale.language()) + QString(" (") + langStr + QString(")"), QVariant(langStr));
-#endif
         }
     }
-#if QT_VERSION >= 0x040700
     ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
-#endif
+
 
     ui->unit->setModel(new BitcoinUnits(this));
 
@@ -197,9 +189,9 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
     // Zeromint Enabled
-    mapper->addMapping(ui->checkBoxZeromintEnable, OptionsModel::ZeromintEnable);
+    //mapper->addMapping(ui->checkBoxZeromintEnable, OptionsModel::ZeromintEnable);
     // Zerocoin mint percentage
-    mapper->addMapping(ui->zeromintPercentage, OptionsModel::ZeromintPercentage);
+    //mapper->addMapping(ui->zeromintPercentage, OptionsModel::ZeromintPercentage);
     // Zerocoin preferred denomination
     mapper->addMapping(ui->preferredDenom, OptionsModel::ZeromintPrefDenom);
 
