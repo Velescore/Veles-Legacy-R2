@@ -60,17 +60,7 @@ public:
         qint64 amount = index.data(TransactionTableModel::AmountRole).toLongLong();
         bool confirmed = index.data(TransactionTableModel::ConfirmedRole).toBool();
 
-        // Check transaction status
-        int nStatus = index.data(TransactionTableModel::StatusRole).toInt();
-        bool fConflicted = false;
-        if (nStatus == TransactionStatus::Conflicted || nStatus == TransactionStatus::NotAccepted) {
-            fConflicted = true; // Most probably orphaned, but could have other reasons as well
-        }
-        bool fImmature = false;
-        if (nStatus == TransactionStatus::Immature) {
-            fImmature = true;
-        }
-
+        
         QVariant value = index.data(Qt::ForegroundRole);
         QColor foreground = COLOR_BLACK;
         if (value.canConvert<QBrush>()) {
@@ -88,15 +78,8 @@ public:
             iconWatchonly.paint(painter, watchonlyRect);
         }
 
-        if(fConflicted) { // No need to check anything else for conflicted transactions
-            foreground = COLOR_CONFLICTED;
-        } else if (!confirmed || fImmature) {
-            foreground = COLOR_UNCONFIRMED;
-        } else if (amount < 0) {
-            foreground = COLOR_NEGATIVE;
-        } else {
-            foreground = COLOR_BLACK;
-        }
+        if (amount < 0)
+        foreground = COLOR_NEGATIVE;
         painter->setPen(foreground);
         QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true, BitcoinUnits::separatorAlways);
         if (!confirmed) {
@@ -209,14 +192,19 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
         nLockedBalance = pwalletMain->GetLockedCoins();
         nWatchOnlyLockedBalance = pwalletMain->GetLockedWatchOnlyBalance();
     }
+    
     // VLS Balance
-    CAmount nTotalBalance = balance + unconfirmedBalance + nLockedBalance;
-    CAmount pivAvailableBalance = balance - immatureBalance;
-    CAmount nTotalWatchBalance = watchOnlyBalance + watchUnconfBalance + watchImmatureBalance;    
-    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance - nLockedBalance; // increment nLockedBalance twice because it was added to
-                                                                                // nTotalBalance above
+    CAmount nTotalBalance = balance + unconfirmedBalance;
+    CAmount pivAvailableBalance = balance - immatureBalance - nLockedBalance;
+    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance;
+
+    // VLS Watch-Only Balance
+    CAmount nTotalWatchBalance = watchOnlyBalance + watchUnconfBalance;
+    CAmount nAvailableWatchBalance = watchOnlyBalance - watchImmatureBalance - nWatchOnlyLockedBalance;
+    
     // zVLS Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
+  
     // Percentages
     QString szPercentage = "";
     QString sPercentage = "";
@@ -233,7 +221,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelTotal->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nTotalBalance, false, BitcoinUnits::separatorAlways));
 
     // Watchonly labels
-    ui->labelWatchAvailable->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, watchOnlyBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nAvailableWatchBalance, false, BitcoinUnits::separatorAlways));
     ui->labelWatchPending->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, watchUnconfBalance, false, BitcoinUnits::separatorAlways));
     ui->labelWatchImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, watchImmatureBalance, false, BitcoinUnits::separatorAlways));
     ui->labelWatchLocked->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nWatchOnlyLockedBalance, false, BitcoinUnits::separatorAlways));
@@ -255,8 +243,10 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
 
     // Adjust bubble-help according to AutoMint settings
     QString automintHelp = tr("Current percentage of zVLS.\nIf AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).\n");
-    bool fEnableZeromint = GetBoolArg("-enablezeromint", true);
-    int nZeromintPercentage = GetArg("-zeromintpercentage", 10);
+    //bool fEnableZeromint = GetBoolArg("-enablezeromint", true);
+    bool fEnableZeromint = false;
+    //int nZeromintPercentage = GetArg("-zeromintpercentage", 10);
+    int nZeromintPercentage = 0;
     if (fEnableZeromint) {
         automintHelp += tr("AutoMint is currently enabled and set to ") + QString::number(nZeromintPercentage) + "%.\n";
         automintHelp += tr("To disable AutoMint add 'enablezeromint=0' in veles.conf.");
@@ -265,33 +255,45 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
         automintHelp += tr("AutoMint is currently disabled.\nTo enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in veles.conf");
     }
 
+    
     // Only show most balances if they are non-zero for the sake of simplicity
     QSettings settings;
     bool settingShowAllBalances = !settings.value("fHideZeroBalances").toBool();
     bool showSumAvailable = settingShowAllBalances || sumTotalBalance != availableTotalBalance;
     ui->labelBalanceTextz->setVisible(showSumAvailable);
     ui->labelBalancez->setVisible(showSumAvailable);
-    bool showVLSAvailable = settingShowAllBalances || pivAvailableBalance != nTotalBalance;
-    bool showWatchOnlyVLSAvailable = watchOnlyBalance != nTotalWatchBalance;
-    bool showVLSPending = settingShowAllBalances || unconfirmedBalance != 0;
-    bool showWatchOnlyVLSPending = watchUnconfBalance != 0;
-    bool showVLSLocked = settingShowAllBalances || nLockedBalance != 0;
-    bool showWatchOnlyVLSLocked = nWatchOnlyLockedBalance != 0;
-    bool showImmature = settingShowAllBalances || immatureBalance != 0;
-    bool showWatchOnlyImmature = watchImmatureBalance != 0;
+    
     bool showWatchOnly = nTotalWatchBalance != 0;
-    ui->labelBalance->setVisible(showVLSAvailable || showWatchOnlyVLSAvailable);
+    
+    // VLS Available
+    bool showABPAvailable = settingShowAllBalances || pivAvailableBalance != nTotalBalance;
+    bool showWatchOnlyVLSAvailable = showVLSAvailable || nAvailableWatchBalance != nTotalWatchBalance;
     ui->labelBalanceText->setVisible(showVLSAvailable || showWatchOnlyVLSAvailable);
-    ui->labelWatchAvailable->setVisible(showVLSAvailable && showWatchOnly);
-    ui->labelUnconfirmed->setVisible(showVLSPending || showWatchOnlyVLSPending);
+    ui->labelBalance->setVisible(showVLSAvailable || showWatchOnlyVLSAvailable);
+    ui->labelWatchAvailable->setVisible(showWatchOnlyVLSAvailable && showWatchOnly);
+
+    // VLS Pending
+    bool showVLSPending = settingShowAllBalances || unconfirmedBalance != 0;
+    bool showWatchOnlyVLSPending = showVLSPending || watchUnconfBalance != 0;
     ui->labelPendingText->setVisible(showVLSPending || showWatchOnlyVLSPending);
-    ui->labelWatchPending->setVisible(showVLSPending && showWatchOnly);
-    ui->labelLockedBalance->setVisible(showVLSLocked || showWatchOnlyVLSLocked);
+    ui->labelUnconfirmed->setVisible(showVLSPending || showWatchOnlyVLSPending);
+    ui->labelWatchPending->setVisible(showWatchOnlyVLSPending && showWatchOnly);
+
+    // VLS Immature
+    bool showVLSImmature = settingShowAllBalances || immatureBalance != 0;
+    bool showWatchOnlyImmature = showVLSImmature || watchImmatureBalance != 0;
+    ui->labelImmatureText->setVisible(showVLSImmature || showWatchOnlyImmature);
+    ui->labelImmature->setVisible(showVLSImmature || showWatchOnlyImmature); // for symmetry reasons also show immature label when the watch-only one is shown
+    ui->labelWatchImmature->setVisible(showWatchOnlyImmature && showWatchOnly); // show watch-only immature balance
+
+    // VLS Locked
+    bool showVLSLocked = settingShowAllBalances || nLockedBalance != 0;
+    bool showWatchOnlyVLSLocked = showVLSLocked || nWatchOnlyLockedBalance != 0;
     ui->labelLockedBalanceText->setVisible(showVLSLocked || showWatchOnlyVLSLocked);
-    ui->labelWatchLocked->setVisible(showVLSLocked && showWatchOnly);
-    ui->labelImmature->setVisible(showImmature || showWatchOnlyImmature); // for symmetry reasons also show immature label when the watch-only one is shown
-    ui->labelImmatureText->setVisible(showImmature || showWatchOnlyImmature);
-    ui->labelWatchImmature->setVisible(showImmature && showWatchOnly); // show watch-only immature balance
+    ui->labelLockedBalance->setVisible(showVLSLocked || showWatchOnlyVLSLocked);
+    ui->labelWatchLocked->setVisible(showWatchOnlyVLSLocked && showWatchOnly);
+
+    // zVLS
     bool showzVLSAvailable = settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
     bool showzVLSUnconfirmed = settingShowAllBalances || unconfirmedZerocoinBalance != 0;
     bool showzVLSImmature = settingShowAllBalances || immatureZerocoinBalance != 0;
@@ -301,6 +303,8 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelzBalanceUnconfirmedText->setVisible(showzVLSUnconfirmed);
     ui->labelzBalanceImmature->setVisible(showzVLSImmature);
     ui->labelzBalanceImmatureText->setVisible(showzVLSImmature);
+    
+    // Percent split
     bool showPercentages = ! (zerocoinBalance == 0 && nTotalBalance == 0);
     ui->labelVLSPercent->setVisible(showPercentages);
     ui->labelzVLSPercent->setVisible(showPercentages);
