@@ -78,16 +78,21 @@ void OptionsModel::Init()
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
 
     if (!settings.contains("fZeromintEnable"))
-        settings.setValue("fZeromintEnable", true);
-    fEnableZeromint = settings.value("fZeromintEnable").toBool();
-
+     //    settings.setValue("fZeromintEnable", true);
+        settings.setValue("fZeromintEnable", false);
+    //fEnableZeromint = settings.value("fZeromintEnable").toBool();
+    fEnableZeromint = false;
+    
     if (!settings.contains("nZeromintPercentage"))
-        settings.setValue("nZeromintPercentage", 10);
-    nZeromintPercentage = settings.value("nZeromintPercentage").toLongLong();
+       //    settings.setValue("nZeromintPercentage", 10);
+        settings.setValue("nZeromintPercentage", 0);
+    //nZeromintPercentage = settings.value("nZeromintPercentage").toLongLong();
+    nZeromintPercentage = 0;
 
     if (!settings.contains("nPreferredDenom"))
         settings.setValue("nPreferredDenom", 0);
-    nPreferredDenom = settings.value("nPreferredDenom", "0").toLongLong();
+   //nPreferredDenom = settings.value("nPreferredDenom", "0").toLongLong();
+    nPreferredDenom = 0;
 
     if (!settings.contains("nAnonymizeVelesAmount"))
         settings.setValue("nAnonymizeVelesAmount", 1000);
@@ -161,11 +166,14 @@ void OptionsModel::Init()
         addOverriddenOption("-lang");
 
     if (settings.contains("fZeromintEnable"))
-        SoftSetBoolArg("-enablezeromint", settings.value("fZeromintEnable").toBool());
+        //SoftSetBoolArg("-enablezeromint", settings.value("fZeromintEnable").toBool());
+        SoftSetBoolArg("-enablezeromint", false);
     if (settings.contains("nZeromintPercentage"))
-        SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
+        //SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
+        SoftSetArg("-zeromintpercentage", "0");
     if (settings.contains("nPreferredDenom"))
-        SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
+        //    SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
+        SoftSetArg("-preferredDenom", "0");
     if (settings.contains("nAnonymizeVelesAmount"))
         SoftSetArg("-anonymizevelesamount", settings.value("nAnonymizeVelesAmount").toString().toStdString());
 
