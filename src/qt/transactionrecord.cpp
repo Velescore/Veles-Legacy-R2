@@ -71,6 +71,20 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
             sub.type = TransactionRecord::StakeMint;
             sub.address = CBitcoinAddress(address).ToString();
             sub.credit = nNet;
+            } else if (isminetype mine = wallet->IsMine(wtx.vout[2])) {
+            // VLS stake reward
+            sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
+            ExtractDestination(wtx.vout[2].scriptPubKey, address);
+            sub.type = TransactionRecord::MNReward;
+            sub.address = CBitcoinAddress(address).ToString();
+            sub.credit = wtx.vout[2].nValue;
+        } else if (isminetype mine = wallet->IsMine(wtx.vout[3])) {
+            // dev reward
+            sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
+            ExtractDestination(wtx.vout[3].scriptPubKey, address);
+            sub.type = TransactionRecord::MNReward;
+            sub.address = CBitcoinAddress(address).ToString();
+            sub.credit = wtx.vout[3].nValue;
         } else {
             //Masternode reward
             CTxDestination destMN;
