@@ -1,10 +1,11 @@
 
 Deprecation Warning
 ===================
-This is the legacy version of Veles cryptocurrency software, third experimental public release. This version is no longer maintained and it will become incompatible after the block 50k by VCIP01 activation. 
+This is the legacy version of Veles cryptocurrency software, second experimental public release, which operated on Veles Pre-alpha blockchain that is not being maintained anymore. Active balances have been swapped onto the Veles Production blockchain.
 
-It has been superseded by version v0.17: 
-https://github.com/Velescore/Veles
+It was superseded by Veles Core release R3: https://github.com/Velescore/Veles-Legacy-R2 
+
+Please use the current version of Veles Core from: https://github.com/Velescore/Veles
 
 
 Archive of Veles Core R2 (internal version 1.0.0.1) integration/staging tree
